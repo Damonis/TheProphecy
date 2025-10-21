@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4b54e3c8-d962-465e-967e-30a36c6ac21a" name="Changes" comment="StartOfAProject">
+      <change afterPath="$PROJECT_DIR$/notes/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/notes/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/note_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/note_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/note_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/note_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/registration/logout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheProphecy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheProphecy/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheProphecy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheProphecy/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/polls/urls.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,21 +37,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Damonis"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Damonis&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Damonis/TheProphecy.git",
-    "accountId": "5ae2ddf5-b2ee-48cd-8dda-4cdd970543be"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Damonis/TheProphecy.git&quot;,
+    &quot;accountId&quot;: &quot;5ae2ddf5-b2ee-48cd-8dda-4cdd970543be&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="34KohKZCNKUFgIRcZKJTsNEZD8D" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -46,9 +60,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Django Server.TheProphecy.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -72,6 +89,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="TheProphecy.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -106,7 +124,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760971742451</updated>
-      <workItem from="1760971743869" duration="5072000" />
+      <workItem from="1760971743869" duration="5569000" />
+      <workItem from="1761022264858" duration="1237000" />
+      <workItem from="1761051606777" duration="732000" />
+      <workItem from="1761060519260" duration="2999000" />
     </task>
     <task id="LOCAL-00001" summary="StartOfAProject">
       <option name="closed" value="true" />
@@ -116,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760976510029</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="StartOfAProject">
+      <option name="closed" value="true" />
+      <created>1760977246925</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760977246925</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +162,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>

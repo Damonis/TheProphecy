@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои пророчества{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Мои пророчества</h1>
+    <a href="{% url 'note_create' %}" class="btn btn-primary">Записать пророчество</a>
+</div>
+
+<!-- Фильтры -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Приоритет:</label>
+                <select name="priority" class="form-select" onchange="this.form.submit()">
+                    <option value="">Все</option>
+                    {% for value, label in priority_choices %}
+                        <option value="{{ value }}" {% if request.GET.priority == value %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Статус:</label>
+                <select name="completed" class="form-select" onchange="this.form.submit()">
+                    <option value="">Все</option>
+                    <option value="false" {% if request.GET.completed == 'false' %}selected{% endif %}>Текущие</option>
+                    <option value="true" {% if request.GET.completed == 'true' %}selected{% endif %}>Сбывшиеся</option>
+                </select>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Список заметок -->
+{% if notes %}
+    <div class="row">
+        {% for note in notes %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card h-100 {% if note.is_completed %}border-success{% elif note.priority == 'high' %}border-danger{% elif note.priority == 'medium' %}border-warning{% else %}border-info{% endif %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ note.title }}</h5>
+                        <p class="card-text">{{ note.content|truncatewords:20 }}</p>
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <span class="badge bg-{% if note.priority == 'high' %}danger{% elif note.priority == 'medium' %}warning{% else %}info{% endif %}">
+                                {{ note.get_priority_display }}
+                            </span>
+                            {% if note.is_completed %}
+                                <span class="badge bg-success">Сбылось</span>
+                            {% endif %}
+                        </div>
+                        
+                        <small class="text-muted">Записано: {{ note.created_at|date:"d.m.Y H:i" }}</small>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group w-100">
+                            <a href="{% url 'note_detail' note.pk %}" class="btn btn-sm btn-outline-primary">Просмотр</a>
+                            <a href="{% url 'note_update' note.pk %}" class="btn btn-sm btn-outline-secondary">Перезаписать</a>
+                            <a href="{% url 'note_delete' note.pk %}" class="btn btn-sm btn-outline-danger">Удалить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="text-center py-5">
+        <h3>Пока что будущее вам неясно</h3>
+        <p class="text-muted">Запишите свое первое пророчество!</p>
+        <a href="{% url 'note_create' %}" class="btn btn-primary">Записать пророчество</a>
+    </div>
+{% endif %}
+{% endblock %}

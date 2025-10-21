@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ note.title }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h2 class="mb-0">{{ note.title }}</h2>
+                <div>
+                    <span class="badge bg-{{ priority_class }} me-2">
+                        {{ note.get_priority_display }}
+                    </span>
+                    {% if note.is_completed %}
+                        <span class="badge bg-success">✅ Сбылось</span>
+                    {% else %}
+                        <span class="badge bg-secondary">⏳ Еще грядет</span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="card-body">
+                <div class="mb-4">
+                    <h5 class="text-muted">Содержание:</h5>
+                    <div class="border p-3 bg-light rounded">
+                        {{ note.content|linebreaksbr }}
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">👁️ Информация о пророчестве</h6>
+                                <ul class="list-unstyled">
+                                    <li><strong>Создано:</strong> {{ note.created_at|date:"d.m.Y в H:i" }}</li>
+                                    <li><strong>Обновлено:</strong> {{ note.updated_at|date:"d.m.Y в H:i" }}</li>
+                                    <li><strong>Автор:</strong> {{ note.author.username }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">⚡ Действия</h6>
+                                <div class="d-grid gap-2">
+                                    <a href="{% url 'note_update' note.pk %}" class="btn btn-warning">
+                                        ✏️ Переписать
+                                    </a>
+                                    <a href="{% url 'note_delete' note.pk %}" class="btn btn-danger">
+                                        🗑️ Удалить
+                                    </a>
+                                    <a href="{% url 'note_list' %}" class="btn btn-secondary">
+                                        ← Назад к списку
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-footer text-muted">
+                <small>
+                    Пророчество записано {{ note.created_at|timesince }} назад
+                    {% if note.created_at != note.updated_at %}
+                        и обновлено {{ note.updated_at|timesince }} назад
+                    {% endif %}
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+    .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    .border {
+        border: 1px solid #dee2e6 !important;
+    }
+</style>
+{% endblock %}
